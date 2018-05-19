@@ -1,0 +1,110 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.projects.juan.journeys.fragments.PofileFragment">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:layout_constraintStart_toStartOf="parent"
+        card_view:cardCornerRadius="@dimen/card_view_corner_radius"
+        tools:layout_editor_absoluteY="8dp"
+        tools:ignore="MissingConstraints">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/my_account_profile_pic"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/my_account_name"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="@dimen/activity_horizontal_margin"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:maxLines="1"
+                android:textColor="@color/colorSecondaryText"
+                android:textSize="@dimen/text_size_primary"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/my_account_profile_pic" />
+
+            <TextView
+                android:id="@+id/my_account_email"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="8dp"
+                android:gravity="left|center_vertical"
+                android:maxLines="1"
+                android:textColor="@color/colorSecondaryText"
+                android:textSize="@dimen/text_size_secondary"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/my_account_name"
+                tools:layout_editor_absoluteX="16dp" />
+
+            <TextView
+                android:id="@+id/my_account_bio"
+                android:layout_width="match_parent"
+                android:layout_height="186dp"
+                android:layout_margin="@dimen/activity_horizontal_margin"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:gravity="left|top"
+                android:textColor="@color/colorSecondaryText"
+                android:textSize="@dimen/text_size_secondary"
+                android:maxLines="10"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/my_account_email" />
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/pay_example_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/logout_fab"
+        app:layout_constraintHorizontal_bias="0.922"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_payment_24px" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/logout_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_exit_to_app_24px" />
+
+</android.support.constraint.ConstraintLayout>

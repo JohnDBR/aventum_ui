@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context="com.projects.juan.journeys.activities.SignupActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/sign_up_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:layout_constraintBottom_toTopOf="@+id/fragment_container"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:titleTextColor="@android:color/white"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/img_profile_pic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/ic_picture"
+            android:onClick="galleryHandler"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sign_up_toolbar"
+            app:srcCompat="@drawable/ic_picture" />
+
+        <Button
+            android:id="@+id/btnSignUp"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:background="@color/colorPrimary"
+            android:onClick="handleSignUp"
+            android:text="Sign Up"
+            android:textColor="@color/colorIcons"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/txtPasswordLayout"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnSignUp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/txt_password"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:textSize="16sp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/txtPhoneLayout"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/txtPasswordLayout"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/txt_phone"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:hint="Phone number"
+                android:inputType="phone"
+                android:textSize="16sp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/txtEmailLayout"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/txtPhoneLayout"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/txt_email"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:textSize="16sp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/txtLastNameLayout"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/txtCCLayout"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <android.support.design.widget.TextInputEditText
+
+                android:id="@+id/txt_last_name"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:hint="Last name"
+                android:textSize="16sp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/txtCCLayout"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/txtEmailLayout"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/txt_cc"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:hint="CC"
+                android:inputType="number"
+                android:textSize="16sp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/txtFirstNameLayout"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+
+            android:layout_marginTop="12dp"
+            app:layout_constraintBottom_toTopOf="@+id/txtLastNameLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_profile_pic"
+            app:layout_constraintVertical_bias="0.965">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/txt_first_name"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:hint="First name"
+                android:textSize="16sp" />
+        </android.support.design.widget.TextInputLayout>
+    </android.support.constraint.ConstraintLayout>
+
+</ScrollView>

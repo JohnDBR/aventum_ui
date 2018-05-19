@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/recycler_view_margin"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    card_view:cardCornerRadius="@dimen/card_view_corner_radius">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/code_transaction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:gravity="left|center_vertical"
+            android:maxLines="1"
+            android:textColor="@color/colorSecondaryText"
+            android:textSize="@dimen/text_size_primary"
+            android:text="Code"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorDivider" />
+
+        <TextView
+            android:id="@+id/coins_transaction"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/text_item_view"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:text="Coins"
+            android:textColor="@color/colorSecondaryText"
+            android:textSize="@dimen/text_size_secondary" />
+
+        <TextView
+            android:id="@+id/status_transaction"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/text_item_view"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:text="Status"
+            android:textColor="@color/colorSecondaryText"
+            android:textSize="@dimen/text_size_secondary" />
+
+        <TextView
+            android:id="@+id/kind_transaction"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/text_item_view"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:text="Kind"
+            android:textColor="@color/colorSecondaryText"
+            android:textSize="@dimen/text_size_secondary" />
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

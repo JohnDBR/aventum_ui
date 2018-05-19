@@ -1,0 +1,64 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.projects.juan.journeys"
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+    }
+    buildTypes {
+        debug {
+//            34.237.215.215
+            buildConfigField "String", "LOGIN", '"http://34.237.215.215:3000/students/login"'
+            buildConfigField "String", "JOURNEYS", '"http://34.237.215.215:3000/journeys"'
+            buildConfigField "String", "SEARCH_TRANSACTIONS", '"http://34.237.215.215:3000/transactions/search"'
+            buildConfigField "String", "SEARCH_JOURNEYS", '"http://34.237.215.215:3000/journeys/search"'
+            buildConfigField "String", "GET_STUDENTS", '"http://34.237.215.215:3000/students"'
+            buildConfigField "String", "CREATE_TRANSACTION", '"http://34.237.215.215:3000/transactions"'
+            buildConfigField "String", "SMS_GATEWAY", '"http://smsgateway.me/api/v3/messages/send"'
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+        disable 'PrivateResource'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.android.support:design:26.1.0'
+    implementation 'com.android.support:support-vector-drawable:26.1.0'
+    implementation 'com.android.support:support-v4:26.1.0'
+    implementation 'com.loopj.android:android-async-http:1.4.9'
+    implementation 'com.android.support:cardview-v7:26.1.0'
+    implementation 'com.android.support:recyclerview-v7:26.1.0'
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
+    implementation 'com.github.jkwiecien:EasyImage:2.0.2'
+    implementation 'id.zelory:compressor:2.1.0'
+    implementation 'com.google.android.gms:play-services-maps:7.8.0'
+    implementation 'com.google.android.gms:play-services-location:7.8.0'
+    implementation 'com.google.code.gson:gson:2.8.2'
+    implementation 'org.jetbrains.anko:anko-sdk15:0.8.2'
+    implementation 'com.beust:klaxon:0.30'
+    implementation("com.github.bumptech.glide:glide:4.7.1") {
+        exclude group: "com.android.support"
+    }
+    implementation "com.android.support:support-fragment:26.1.0"
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+}
+
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
