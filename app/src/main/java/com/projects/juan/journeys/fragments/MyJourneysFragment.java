@@ -60,6 +60,7 @@ public class MyJourneysFragment extends Fragment {
 
         progressDialog = new ProgressDialog(getContext(), R.style.dialog_light);
         progressDialog.setIndeterminate(true);
+        progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.setMessage("Loading...");
 
         refreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.refresh_journeys);

@@ -1,9 +1,13 @@
 package com.projects.juan.journeys.activities;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.pm.PackageManager;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -33,10 +37,13 @@ public class JourneyDetailsActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private JourneyDetailAdapter journeyDetailAdapter;
     private Toolbar toolbar;
+    private static final int MY_LOCATION_REQUEST_CODE = 99;
+    private boolean LOCATION_PERMISSION_GRANTED = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        checkLocationPermission();
         setContentView(R.layout.activity_journey_details);
 
         toolbar = findViewById(R.id.journey_details_toolbar);
@@ -132,7 +139,7 @@ public class JourneyDetailsActivity extends AppCompatActivity {
     }
 
     private void getInfo(final CallBack callBack){
-        progressDialog.show();
+        if(LOCATION_PERMISSION_GRANTED) progressDialog.show();
         HttpRequests.getRequest(getApplicationContext(), getIntent().getStringExtra("token"), BuildConfig.JOURNEYS + "/" + getIntent().getIntExtra("id", 0), getResources().getString(R.string.journeys_not_found), new HttpRequests.CallBack() {
             @Override
             public void sendResponse(String response) {
@@ -140,7 +147,7 @@ public class JourneyDetailsActivity extends AppCompatActivity {
                     Journey journey = new Journey(new JSONObject(response).getJSONObject("journey"), new JSONObject(response).getJSONArray("stops"), new JSONObject(response).getJSONObject("driver"), new JSONObject(response).getJSONArray("students"));
                     Log.d("JOURNEY_OBJECT", journey.getDriver().getProfile_picture());
                     callBack.onGetInfo(journey);
-                    progressDialog.cancel();
+                    if(LOCATION_PERMISSION_GRANTED) progressDialog.cancel();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -155,5 +162,39 @@ public class JourneyDetailsActivity extends AppCompatActivity {
 
     public interface CallBack {
         void onGetInfo(Journey journey);
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        if (requestCode == MY_LOCATION_REQUEST_CODE) {
+            if (permissions.length == 1 && permissions[0] == Manifest.permission.ACCESS_FINE_LOCATION && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                LOCATION_PERMISSION_GRANTED = true;
+            }
+            if(grantResults[0] == PackageManager.PERMISSION_DENIED){
+                finish();
+            }
+        }
+    }
+
+    public void checkLocationPermission() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)) {
+                new android.support.v7.app.AlertDialog.Builder(this)
+                        .setTitle(R.string.title_location_permission)
+                        .setMessage(R.string.text_location_permission)
+                        .setCancelable(false)
+                        .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                ActivityCompat.requestPermissions(JourneyDetailsActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, MY_LOCATION_REQUEST_CODE);
+                            }
+                        })
+                        .create()
+                        .show();
+            } else {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, MY_LOCATION_REQUEST_CODE);
+            }
+        }else{
+            LOCATION_PERMISSION_GRANTED = true;
+        }
     }
 }

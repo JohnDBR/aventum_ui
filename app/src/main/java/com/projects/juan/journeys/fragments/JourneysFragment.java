@@ -68,6 +68,7 @@ public class JourneysFragment extends Fragment {
 
         progressDialog = new ProgressDialog(getContext(), R.style.dialog_light);
         progressDialog.setIndeterminate(true);
+        progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.setMessage("Loading...");
 
         final RecyclerView recyclerView = view.findViewById(R.id.recycler_search_journeys);

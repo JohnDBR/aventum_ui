@@ -13,13 +13,13 @@ android {
     }
     buildTypes {
         debug {
-//            34.237.215.215
-            buildConfigField "String", "LOGIN", '"http://34.237.215.215:3000/students/login"'
-            buildConfigField "String", "JOURNEYS", '"http://34.237.215.215:3000/journeys"'
-            buildConfigField "String", "SEARCH_TRANSACTIONS", '"http://34.237.215.215:3000/transactions/search"'
-            buildConfigField "String", "SEARCH_JOURNEYS", '"http://34.237.215.215:3000/journeys/search"'
-            buildConfigField "String", "GET_STUDENTS", '"http://34.237.215.215:3000/students"'
-            buildConfigField "String", "CREATE_TRANSACTION", '"http://34.237.215.215:3000/transactions"'
+//            192.168.0.9
+            buildConfigField "String", "LOGIN", '"http://192.168.0.9:3000/students/login"'
+            buildConfigField "String", "JOURNEYS", '"http://192.168.0.9:3000/journeys"'
+            buildConfigField "String", "SEARCH_TRANSACTIONS", '"http://192.168.0.9:3000/transactions/search"'
+            buildConfigField "String", "SEARCH_JOURNEYS", '"http://192.168.0.9:3000/journeys/search"'
+            buildConfigField "String", "GET_STUDENTS", '"http://192.168.0.9:3000/students"'
+            buildConfigField "String", "CREATE_TRANSACTION", '"http://192.168.0.9:3000/transactions"'
             buildConfigField "String", "SMS_GATEWAY", '"http://smsgateway.me/api/v3/messages/send"'
         }
         release {

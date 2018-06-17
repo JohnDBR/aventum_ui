@@ -11,6 +11,7 @@
     <string name="btn_forgotpass_text">Forgot password</string>
     <string name="txt_email_login">Email</string>
     <string name="txt_password_login">Password</string>
+    <string name="ok">Ok</string>
 
     <string name="title_activity_maps">Map</string>
 
@@ -36,4 +37,6 @@
     <string name="password_validation">Enter a valid password</string>
     <string name="user_created">User created sucessfully</string>
     <string name="sms_gateway_error">Number verification failed</string>
+    <string name="title_location_permission">Turn on location permissions</string>
+    <string name="text_location_permission">Your location point isn\'t showing up on the map. If you turn on location permission, the app will find a point for you.</string>
 </resources>

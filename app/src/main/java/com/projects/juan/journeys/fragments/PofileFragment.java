@@ -50,6 +50,7 @@ public class PofileFragment extends Fragment {
 
         progressDialog = new ProgressDialog(getContext(), R.style.dialog_light);
         progressDialog.setIndeterminate(true);
+        progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.setMessage("Loading...");
 
         final ImageView my_account_profile_pic = view.findViewById(R.id.my_account_profile_pic);
